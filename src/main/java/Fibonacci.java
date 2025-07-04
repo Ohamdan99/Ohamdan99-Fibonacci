@@ -1,10 +1,9 @@
-
 public class Fibonacci {
     /**
      * Return the nth number of fibonacci sequence.
      * The fibonacci sequence is calculated by adding the previous two numbers in the sequence to obtain the next
-     * number. The first two numbers in the whole fibonacci sequence are always 0 and 1.
-     * For instance, the sequence starts as:
+     * number. The first two numbers in the whole fibonacci sequence is always 0 and 1.
+     * for instance, the sequence starts as:
      * 0 1 1 2 3 5 8 13 21
      * where the 4th number of the sequence would be 3, the 5th number would be 5, the 6th number would be 8, etc.
      *
@@ -14,7 +13,27 @@ public class Fibonacci {
      * @param n an iteration of the fibonacci sequence.
      * @return the nth number of fibonacci sequence.
      */
-    public int fib(int n){
-        return 0;
+    public int fib(int n) {
+       
+        if (n <= 0) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        
+        
+        int prev1 = 0;  // fib(0)
+        int prev2 = 1;  // fib(1)
+        int current = 0;
+        
+        
+        for (int i = 2; i <= n; i++) {
+            current = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = current;
+        }
+        
+        return current;
     }
 }
